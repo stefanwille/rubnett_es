@@ -1,0 +1,25 @@
+# Site settings
+title: Rubynettes
+email: railsgirls-stefanwille-com
+description: > # this means to ignore newlines until "baseurl:"
+  We are a RailsGirls project group in Berlin.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://rubynett.es" # the base hostname & protocol for your site
+#twitter_username: sheephead
+# github_username:  stefanwille
+excerpt_separator: <!--more-->
+
+# Build settings
+markdown: redcarpet           # redcarpet is GitHub's markdown
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "strikethrough", "superscript", "with_toc_data"]
+
+highlighter: rouge
+permalink: /:year/:month/:title
+exclude: ["Rakefile", "README.md", ".git", ".gitconfig", "Gemfile", "Gemfile.lock"]
+
+paginate: 3
+paginate_path: /page:num/
+
+gems:
+  - jemoji

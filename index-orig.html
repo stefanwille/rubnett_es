@@ -1,0 +1,67 @@
+---
+layout: default
+seo_title: Stefan Wille - Ruby on Rails Freelancer in Berlin
+---
+
+<div class="home">
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in paginator.posts %}
+    <li>
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+        <p>{{ post.excerpt }}</p>
+
+        {% comment %} BEGIN more {% endcomment %}
+        {% capture content_words %}
+        {{ post.content | number_of_words }}
+        {% endcapture %}
+        {% capture excerpt_words %}
+        {{ post.excerpt | number_of_words }}
+        {% endcapture %}
+        {% if excerpt_words != content_words %}
+        <p>
+          <a class="btn btn-sm btn-primary" href="{{ post.url }}/#read-more" role="button">Read more</a>
+        </p>
+        {% endif %}
+        {% comment %} END more {% endcomment %}
+
+      </li>
+      {% endfor %}
+    </ul>
+
+    <!-- Pagination links -->
+    {% if paginator.total_pages > 1 %}
+    <p class="pagination">
+      {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Newer Entries</a>
+      {% else %}
+      <span><!-- &laquo; Newer Entries --></span>
+      {% endif %}
+
+      {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+      <em>{{ page }}</em>
+      {% elsif page == 1 %}
+      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+      {% else %}
+      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+      {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Entries &raquo;</a>
+      {% else %}
+      <span><!-- Older Entries &raquo; --></span>
+      {% endif %}
+    </p>
+    {% endif %}
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+  </div>
