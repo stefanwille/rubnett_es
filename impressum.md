@@ -15,7 +15,7 @@ Pappelallee 10<br>
 10437 Berlin<br>
 Germany<br>
 Phone: +49 30 54466235<br>
-Email: <a class="email-address" href="#">nospam-railsgirls@nospam-stefanwille.com</a>
+Email: <a class="email-address" href="nospam-hi-at-nospam-rubynett.es">nospam-hi-at-nospam-rubynett.es</a>
 
 Die USt-IdNr. ist DE214239646.
 
